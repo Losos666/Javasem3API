@@ -1,29 +1,30 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
+
 public class task2 {
-    //Пусть дан произвольный список целых чисел, удалить из него четные числа
     public static void main(String[] args) {
-        int[] array = {1, 2, 3, 4, 5};
-        printArray("Массив:", array);
+        List numbers = new ArrayList();
 
-        array = deleteEvenElement(array);
-        printArray("Результат:", array);
+        numbers.add(11);
+        numbers.add(45);
+        numbers.add(12);
+        numbers.add(32);
+        numbers.add(36);
 
-    }
+        System.out.println("Несортированный список: " + numbers);
 
-    public static void printArray(String text, int[] array) {
-        System.out.print(text + " [");
-        for (int i = 0; i < array.length - 1; i++) {
-            System.out.print(array[i] + ", ");
+        for (Iterator<Integer> iterator = numbers.iterator(); iterator.hasNext(); ) {
+            Integer number = iterator.next();
+            if (number % 2 == 0) {
+                System.out.println("Это четное число: " + number);
+                iterator.remove();
+            }
+
         }
-        System.out.println(array[array.length - 1] + "]");
-    }
 
-    public static int[] deleteEvenElement(int[] array) {
-        int[] result = new int[array.length / 2];
-        int i, j;
-        for (i = 0, j = 1; j < array.length; i++, j += 2) {
-            result[i] = array[j];
-        }
-        return result;
+        Collections.sort(numbers);
+        System.out.println("Отсортированный список: " + numbers);
     }
 }
-

@@ -1,16 +1,19 @@
 import java.util.Arrays;
-import java.util.IntSummaryStatistics;
+import java.util.Collections;
 import java.util.List;
 
 public class task3 {
-
     public static void main(String[] args) {
-        List<Integer> primes = Arrays.asList(2, 3, 5, 7, 11, 13, 17, 19, 23, 29);
-        IntSummaryStatistics stats;
-        stats = primes.stream()
-                .mapToInt((x) -> x)
-                .summaryStatistics();
-        System.out.println(stats);
+        List<Integer> list = Arrays.asList(1, 2, 3, 4, 5);
+        int sum = 0;
+        for (int i : list) {
+            sum += i;
+        }
+        int average = sum / list.size();
+        System.out.println(Collections.max(list)+(" = max"));
+        System.out.println(Collections.min(list)+(" = min"));
+        System.out.println((average)+(" = list average"));
     }
 
 }
+
